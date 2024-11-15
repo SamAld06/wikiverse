@@ -8,6 +8,11 @@ export const App = () => {
   const [pages, setPages] = useState([])
   const [currentPage, setCurrentPage] = useState(null)
   const [newPage, setNewPage] = useState(false)
+  const [newTitle, setNewTitle] = useState("")
+  const [newContent, setNewContent] = useState("")
+  const [newAuthor, setNewAuthor] = useState("")
+  const [newEmail, setNewEmail] = useState("")
+  const [newTag, setNewTag] = useState("")
 
   async function fetchArticle (slug) {
     const response = await fetch(`${apiURL}/wiki/${slug}`)
@@ -51,7 +56,7 @@ export const App = () => {
       </main>
     )
   }
-  if (setNewPage == true) {
+  if (setNewPage) {
     return (
       <>
         <h1>WikiVerse</h1>
@@ -61,8 +66,8 @@ export const App = () => {
             <input
             type = "text"
             name = "title"
-            value = {newPage}
-            onChange = {(event) =>setNewPage(event.target.value)}
+            value = {newTitle}
+            onChange = {(event) =>setNewTitle(event.target.value)}
             />
           </label>
 
@@ -70,8 +75,8 @@ export const App = () => {
             <input
             type = "text"
             name = "content"
-            value = {newPage}
-            onChange = {(event) =>setNewPage(event.target.value)}
+            value = {newContent}
+            onChange = {(event) =>setNewContent(event.target.value)}
             />
           </label>
 
@@ -79,8 +84,8 @@ export const App = () => {
             <input
             type = "text"
             name = "Author Name"
-            value = {newPage}
-            onChange = {(event) =>setNewPage(event.target.value)}
+            value = {newAuthor}
+            onChange = {(event) =>setNewAuthor(event.target.value)}
             />
           </label>
 
@@ -88,8 +93,8 @@ export const App = () => {
             <input
             type = "text"
             name = "Author Email"
-            value = {newPage}
-            onChange = {(event) =>setNewPage(event.target.value)}
+            value = {newEmail}
+            onChange = {(event) =>setNewEmail(event.target.value)}
             />
           </label>
 
@@ -97,8 +102,8 @@ export const App = () => {
             <input
             type = "text"
             name = "Tags"
-            value = {newPage}
-            onChange = {(event) =>setNewPage(event.target.value)}
+            value = {newTag}
+            onChange = {(event) =>setNewTag(event.target.value)}
             />
           </label>
         </form>
@@ -119,4 +124,3 @@ export const App = () => {
     </>
   )
 }
-
