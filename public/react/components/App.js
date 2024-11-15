@@ -7,6 +7,7 @@ import apiURL from '../api'
 export const App = () => {
   const [pages, setPages] = useState([])
   const [currentPage, setCurrentPage] = useState(null)
+  const [newPage, setNewPage] = useState(false)
 
   async function fetchArticle (slug) {
     const response = await fetch(`${apiURL}/wiki/${slug}`)
@@ -19,7 +20,7 @@ export const App = () => {
   }
 
   function createPage() {
-    
+    setNewPage(true)
   }
 
   useEffect(() => {
@@ -48,6 +49,60 @@ export const App = () => {
         ))}</ul>
         <button onClick={createPage}>Create Page</button>
       </main>
+    )
+  }
+  if (setNewPage == true) {
+    return (
+      <>
+        <h1>WikiVerse</h1>
+        <h2>Add a page</h2>
+        <form>
+          <label>
+            <input
+            type = "text"
+            name = "title"
+            value = {newPage}
+            onChange = {(event) =>setNewPage(event.target.value)}
+            />
+          </label>
+
+          <label>
+            <input
+            type = "text"
+            name = "content"
+            value = {newPage}
+            onChange = {(event) =>setNewPage(event.target.value)}
+            />
+          </label>
+
+          <label>
+            <input
+            type = "text"
+            name = "Author Name"
+            value = {newPage}
+            onChange = {(event) =>setNewPage(event.target.value)}
+            />
+          </label>
+
+          <label>
+            <input
+            type = "text"
+            name = "Author Email"
+            value = {newPage}
+            onChange = {(event) =>setNewPage(event.target.value)}
+            />
+          </label>
+
+          <label>
+            <input
+            type = "text"
+            name = "Tags"
+            value = {newPage}
+            onChange = {(event) =>setNewPage(event.target.value)}
+            />
+          </label>
+        </form>
+      </>
     )
   }
   return (
